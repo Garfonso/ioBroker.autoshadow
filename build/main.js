@@ -26,27 +26,15 @@ class Autoshadow extends utils.Adapter {
     this.on("unload", this.onUnload.bind(this));
   }
   async onReady() {
-    this.log.info("config option1: " + this.config.option1);
-    this.log.info("config option2: " + this.config.option2);
-    await this.setObjectNotExistsAsync("testVariable", {
-      type: "state",
-      common: {
-        name: "testVariable",
-        type: "boolean",
-        role: "indicator",
-        read: true,
-        write: true
-      },
-      native: {}
-    });
-    this.subscribeStates("testVariable");
-    await this.setStateAsync("testVariable", true);
-    await this.setStateAsync("testVariable", { val: true, ack: true });
-    await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-    let result = await this.checkPasswordAsync("admin", "iobroker");
-    this.log.info("check user admin pw iobroker: " + result);
-    result = await this.checkGroupAsync("admin", "admin");
-    this.log.info("check group user admin group admin: " + result);
+    console.log("Starting...");
+    const subScribePromises = [];
+    for (const shutter of this.config.shutters) {
+      subScribePromises.push(this.subscribeForeignStatesAsync(shutter.id));
+      if (shutter.windowContact) {
+        subScribePromises.push(this.subscribeForeignStatesAsync(shutter.windowContact.id));
+      }
+    }
+    await Promise.all(subScribePromises);
   }
   onUnload(callback) {
     try {
@@ -56,6 +44,7 @@ class Autoshadow extends utils.Adapter {
     }
   }
   onStateChange(id, state) {
+    console.log("Test");
     if (state) {
       this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
     } else {
