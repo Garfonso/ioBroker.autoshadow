@@ -1,0 +1,43 @@
+{
+    "cli": true,
+    "target": "directory",
+    "adapterName": "autoshadow",
+    "title": "Automatic Shadowing",
+    "description": "Controls shutters to automatically keep the heat out of your house in summer.",
+    "keywords": [
+        "shutter",
+        "automation",
+        "climate"
+    ],
+    "expert": "yes",
+    "features": [
+        "adapter"
+    ],
+    "adminFeatures": [],
+    "type": "climate-control",
+    "startMode": "daemon",
+    "connectionType": "local",
+    "dataSource": "push",
+    "connectionIndicator": "no",
+    "language": "TypeScript",
+    "adminReact": "yes",
+    "tools": [
+        "ESLint",
+        "code coverage"
+    ],
+    "releaseScript": "yes",
+    "devServer": "yes",
+    "devServerPort": 8103,
+    "indentation": "Space (4)",
+    "quotes": "single",
+    "es6class": "yes",
+    "authorName": "Garfonso",
+    "authorGithub": "Garfonso",
+    "authorEmail": "garfonso@mobo.info",
+    "gitRemoteProtocol": "SSH",
+    "gitCommit": "yes",
+    "defaultBranch": "main",
+    "license": "MIT License",
+    "dependabot": "yes",
+    "creatorVersion": "2.1.1"
+}

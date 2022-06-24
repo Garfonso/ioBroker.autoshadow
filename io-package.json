@@ -1,0 +1,79 @@
+{
+    "common": {
+        "name": "autoshadow",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Automatic Shadowing",
+        "titleLang": {
+            "en": "Automatic Shadowing",
+            "de": "Automatisches Shadowing",
+            "ru": "Автоматическое затенение",
+            "pt": "Sombreamento Automático",
+            "nl": "Automatisch schaduwen",
+            "fr": "Ombrage automatique",
+            "it": "Ombreggiatura automatica",
+            "es": "Sombreado automático",
+            "pl": "Automatyczne cieniowanie",
+            "zh-cn": "自动阴影"
+        },
+        "desc": {
+            "en": "Controls shutters to automatically keep the heat out of your house in summer.",
+            "de": "Steuert Rollläden, um im Sommer automatisch die Hitze aus Ihrem Haus fernzuhalten.",
+            "ru": "Управляет жалюзи, автоматически защищая дом от жары летом.",
+            "pt": "Controla as persianas para manter automaticamente o calor fora de sua casa no verão.",
+            "nl": "Regelt rolluiken om de warmte in de zomer automatisch buiten uw huis te houden.",
+            "fr": "Contrôle les volets pour garder automatiquement la chaleur hors de votre maison en été.",
+            "it": "Controlla le persiane per mantenere automaticamente il calore fuori dalla tua casa in estate.",
+            "es": "Controla las persianas para mantener automáticamente el calor fuera de tu casa en verano.",
+            "pl": "Steruje roletami, aby latem automatycznie usuwać ciepło z domu.",
+            "zh-cn": "控制百叶窗，在夏天自动将热量挡在屋外。"
+        },
+        "authors": [
+            "Garfonso <garfonso@mobo.info>"
+        ],
+        "keywords": [
+            "shutter",
+            "automation",
+            "climate"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "autoshadow.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Garfonso/ioBroker.autoshadow/main/admin/autoshadow.png",
+        "readme": "https://github.com/Garfonso/ioBroker.autoshadow/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "climate-control",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "push",
+        "materialize": true,
+        "eraseOnUpload": true,
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
