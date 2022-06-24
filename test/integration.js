@@ -9,9 +9,8 @@ tests.integration(path.join(__dirname, '..'), {
     // By default, termination during startup is not allowed.
     allowedExitCodes: [11],
 
-    //TODO: let's see if we really need integration tests or if we can use unit tests.
     // Define your own tests inside defineAdditionalTests
-    /*defineAdditionalTests({ suite }) {
+    defineAdditionalTests({ suite }) {
         // All tests (it, describe) must be grouped in one or more suites. Each suite sets up a fresh environment for the adapter tests.
         // At the beginning of each suite, the databases will be reset and the adapter will be started.
         // The adapter will run until the end of each suite.
@@ -22,22 +21,35 @@ tests.integration(path.join(__dirname, '..'), {
             let harness;
             before(() => {
                 harness = getHarness();
-
-                await harness.getObjects().setObjectAsync();
             });
 
             //======================================================================
-            it('Should work', () => {
-                return new Promise(async (resolve) => {
-                    //prepare objects:
+            it('Should work', async () => {
+                //prepare objects:
+                const shutterObject = {
+                    _id: 'adapter.0.shutter.level',
+                    type: 'state',
+                    common: {
+                        role: 'level.blind',
+                        type: 'number',
+                        name: 'Cool Shutter',
+                        min: 0,
+                        max: 100,
+                        read: true,
+                        write: true
+                    },
+                    native: {}
+                };
+                await harness.getObjects().setObjectAsync(shutterObject._id, shutterObject);
 
-                    // Start the adapter and wait until it has started
-                    await harness.startAdapterAndWait();
-                });
+                // Start the adapter and wait until it has started
+                await harness.startAdapterAndWait();
+
+                await harness.setStateAsync(shutterObject._id, 100, true);
             });
 
 
             //======================================================================
         });
-    }*/
+    }
 });

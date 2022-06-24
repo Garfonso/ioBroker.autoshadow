@@ -3,7 +3,7 @@ import path from 'path';
 import {tests, utils} from '@iobroker/testing';
 
 // Run unit tests - See https://github.com/ioBroker/testing for a detailed explanation and further options
-tests.unit(path.join(__dirname, '..'), {
+tests.unit(path.join(__dirname, '..'));, {
     // Define your own tests inside defineAdditionalTests
     defineAdditionalTests() {
         // Create mocks and asserts
@@ -15,20 +15,6 @@ tests.unit(path.join(__dirname, '..'), {
 
         describe('test shutter scenarios', () => {
             // Create an object in the fake db we will use in this test
-            const shutterObject : ioBroker.StateObject = {
-                _id: 'adapter.0.shutter.level',
-                type: 'state',
-                common: {
-                    role: 'level.blind',
-                    type: 'number',
-                    name: 'Cool Shutter',
-                    min: 0,
-                    max: 100,
-                    read: true,
-                    write: true
-                },
-                native: {}
-            };
 
             //add shutter before each test.
             beforeEach(() => {
