@@ -40,12 +40,12 @@ tests.integration(path.join(__dirname, '..'), {
                     },
                     native: {}
                 };
-                await harness.getObjects().setObjectAsync(shutterObject._id, shutterObject);
+                await harness.objects.setObjectAsync(shutterObject._id, shutterObject);
 
                 // Start the adapter and wait until it has started
                 await harness.startAdapterAndWait();
 
-                await harness.setStateAsync(shutterObject._id, 100, true);
+                await harness.states.setStateAsync(shutterObject._id, 100, true);
             });
 
 
